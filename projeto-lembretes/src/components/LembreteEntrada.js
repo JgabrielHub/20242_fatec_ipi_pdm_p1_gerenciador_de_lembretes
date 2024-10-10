@@ -17,15 +17,14 @@ function LembreteEntrada() {
     <div className="container">
   <form>
     <div className="d-flex flex-column">
-      <label htmlFor="lembreteInput">Lembrete:</label>
-      <input className="form-control mb-2"
+      <input className="form-control mb-2 mt-2 text-center"
              id="lembreteInput"
              type="text"
-             placeholder="Digite seu lembrete"
+             placeholder="Digite seu novo lembrete"
              value={novoLembrete}
              onChange={handleInputChange}
        />
-      <button className="btn btn-primary btn-lg">Adicionar</button>
+      <button className="btn btn-primary w-100">Ok</button>
     </div>
   </form>
 </div>
