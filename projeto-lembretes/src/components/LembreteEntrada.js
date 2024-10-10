@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 
-function LembreteEntrada() {
+function LembreteEntrada({ adicionarLembrete }) {
   const [novoLembrete, setNovoLembrete] = useState('');
 
   const handleInputChange = (event) => {
     setNovoLembrete(event.target.value);
   };
 
-  const handleAdicionarLembrete = () => {
-    // Aqui você implementará a lógica para adicionar o lembrete
-    console.log('Novo lembrete:', novoLembrete);
-    setNovoLembrete(''); // Limpa o campo após adicionar
+  const handleAdicionarLembrete = (event) => {
+    event.preventDefault(); 
+    if (novoLembrete.trim()) { 
+      adicionarLembrete(novoLembrete); 
+      setNovoLembrete('');
+    }
   };
 
   return (
     <div className="container">
-  <form>
+  <form onSubmit={handleAdicionarLembrete}>
     <div className="d-flex flex-column">
       <input className="form-control mb-2 mt-2 text-center"
              id="lembreteInput"
@@ -24,7 +26,7 @@ function LembreteEntrada() {
              value={novoLembrete}
              onChange={handleInputChange}
        />
-      <button className="btn btn-primary w-100">Ok</button>
+      <button className="btn btn-purpura w-100" type="submit">Ok</button>
     </div>
   </form>
 </div>
